@@ -1,0 +1,1 @@
+Epoch, Data Loader Time (s), Training Time (s), Average Data Loader Time per batch(s), Average Training Time per batch(s), Average Training Loss, Training Top 1 percent accuracy, Test Loss, Test Top 1 percent accuracy

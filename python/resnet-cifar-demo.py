@@ -23,8 +23,11 @@ parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
 parser.add_argument('--cpu_gpu', '-c', default='cpu', help='CPU or GPU')
 parser.add_argument('--optimizer', '-o', default='sgd', help='optimizer')
 parser.add_argument('--workers', '-w', default=0, type=int, help='data loader workers')
-parser.add_argument('--batchNorm', '-b', default='yes', help='Batch Norm yes or no?')
+#parser.add_argument('--batchNorm', '-b', default='yes', help='Batch Norm yes or no?')
 parser.add_argument('--parameters', '-p', default='hide', help='Batch Norm hide or show?')
+parser.add_argument('--filename', '-f', default='resnet.csv', help='name of file to write radings too?')
+parser.add_argument('--model', '-m', default='resnet18', help='Resnet Model Name?')
+
 args = parser.parse_args()
 
 # needed for C5
@@ -54,7 +57,7 @@ testset = torchvision.datasets.CIFAR10(
     root='./data', train=False, download=True, transform=transform_test)
 
 testloader = torch.utils.data.DataLoader(
-    testset, batch_size=32, shuffle=False, num_workers=2)
+    testset, batch_size=128, shuffle=False, num_workers=4)
 
 classes = ('plane', 'car', 'bird', 'cat', 'deer',
            'dog', 'frog', 'horse', 'ship', 'truck')
@@ -62,7 +65,13 @@ classes = ('plane', 'car', 'bird', 'cat', 'deer',
 # Model
 print('==> Building model..')
 
-net = ResNet18_no_batch() if args.batchNorm == 'no' else ResNet18()
+net = ResNet18()
+if args.model == 'ResNet34':
+    net = ResNet34()
+elif args.model == 'ResNet50':
+    net = ResNet50()
+
+#net = ResNet18_no_batch() if args.batchNorm == 'yes' else ResNet18()
 net = net.to(device)
 
 if device == 'cuda':
@@ -83,7 +92,7 @@ elif args.optimizer =='adadelta':
 elif args.optimizer =='adam':
     optimizer = optim.Adam(net.parameters(), lr=args.lr, weight_decay=5e-4)
 
-scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
+#scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=200)
 
 # Training
 def train(epoch, trainloader):
@@ -131,23 +140,15 @@ def train(epoch, trainloader):
     print("Average Training Loss %0.3f, Top 1 percent accuracy %0.3f%%"%(training_loss, top_1))
     return total_training_time, training_loss, top_1
 
-# def count_parameters(model):
-#     table = PrettyTable(["Modules", "Parameters"])
-#     total_params = 0
-#     for name, parameter in model.named_parameters():
-#         if not parameter.requires_grad: continue
-#         params = parameter.numel()
-#         table.add_row([name, params])
-#         total_params+=params
-#     print(table)
-#     print(f"Total Trainable Params: {total_params}")
-#     return total_params
-    
+
+
+
+
 def main():
     # needed for C
-    if args.parameters =='show': 
-        count_parameters(net)
-    trainloader = torch.utils.data.DataLoader(trainset, batch_size=32, shuffle=True, num_workers=args.workers)
+    # if args.parameters =='show': 
+    #     count_parameters(net)
+    trainloader = torch.utils.data.DataLoader(trainset, batch_size=128, shuffle=True, num_workers=args.workers)
     
     avg_total_training_time = 0.0
     epoch_total = 0.0
@@ -158,7 +159,7 @@ def main():
         epoch_total = epoch_total + (epoch_stop_time - epoch_start_time)
         
         avg_total_training_time = avg_total_training_time + training_time
-        scheduler.step()
+        #scheduler.step()
 
     print("Average Running Time per epoch: %.3lf sec, Average Training Time per epoch: %.3lf sec \n\n"% ((epoch_total/5), (avg_total_training_time/5)))
  
