@@ -90,7 +90,6 @@ def progress_bar(current, total, msg=None):
     else:
         sys.stdout.write('\n')
     sys.stdout.flush()
-    return tot_time
 
 def format_time(seconds):
     days = int(seconds / 3600/24)

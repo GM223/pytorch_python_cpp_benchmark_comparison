@@ -15,6 +15,8 @@ $ docker pull nvcr.io/nvidia/pytorch:21.03-py3
 $ docker run -it --rm --gpus all --ipc=host -v $(pwd):/mnt nvcr.io/nvidia/pytorch:21.03-py3
 ```
 
+docker run -it --rm --gpus all --ipc=host -v C:/Users/mujta/Mujtaba/Education/NYU/Spring_2022/High_Performance_Machine_Learning/project/pytorch_python_cpp_benchmark_comparison:/workspace/project nvcr.io/nvidia/pytorch:21.03-py3
+
 ### Download Dataset
 
 ```
