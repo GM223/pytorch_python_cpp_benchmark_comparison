@@ -57,7 +57,7 @@ docker run -it --rm --gpus all --ipc=host -v C:/Users/you/yourfolder/Education/N
 ### Download Dataset
 
 ```
-$ cd /code/cpp
+$ cd code/cpp
 $ mkdir -p dataset
 $ cd dataset/
 $ bash download-cifar10-binary.sh
