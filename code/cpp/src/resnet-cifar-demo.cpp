@@ -9,7 +9,11 @@
 #include <torch/torch.h>
 #include <tuple>
 #include <vector>
-
+#include <chrono>
+#include <fstream>
+#include <iomanip>
+#include <string>
+#include <cstdlib>
 #include "cifar10.h"
 #include "resnet.h"
 
@@ -55,7 +59,7 @@ float measure_inference_latency(std::shared_ptr<T> model, torch::Device& device,
 }
 
 template <typename T1, typename T2, typename T3>
-std::tuple<float, float> evaluate_model(std::shared_ptr<T1> model,
+std::tuple<float, float, float, float> evaluate_model(std::shared_ptr<T1> model,
                                         T2& test_data_loader, T3& criterion,
                                         torch::Device& device)
 {
@@ -68,12 +72,23 @@ std::tuple<float, float> evaluate_model(std::shared_ptr<T1> model,
     int64_t num_samples = 0;
     float running_loss = 0;
 
+    float total_batchLoad_time{0.0};
+    float total_inference_time{0.0};
+    
     // Iterate the data loader to yield batches from the dataset.
     for (torch::data::Example<>& batch : *test_data_loader)
     {
+        auto start_batchLoad = std::chrono::high_resolution_clock::now();
         torch::Tensor inputs = batch.data.to(device);
         torch::Tensor labels = batch.target.to(device);
+        auto stop_batchLoad = std::chrono::high_resolution_clock::now();
+        total_batchLoad_time += std::chrono::duration_cast<std::chrono::milliseconds>(stop_batchLoad - start_batchLoad).count();
+        
+        auto inference_time_start = std::chrono::high_resolution_clock::now();
         torch::Tensor outputs = model->forward(inputs);
+        auto inference_time_stop = std::chrono::high_resolution_clock::now(); 
+        total_inference_time += std::chrono::duration_cast<std::chrono::milliseconds>(inference_time_stop - inference_time_start).count();
+
         torch::Tensor preds = std::get<1>(torch::max(outputs, 1));
         num_running_corrects += torch::sum(preds == labels).item<int64_t>();
         // A related GCC bug:
@@ -85,17 +100,17 @@ std::tuple<float, float> evaluate_model(std::shared_ptr<T1> model,
     }
 
     float eval_accuracy =
-        static_cast<float>(num_running_corrects) / num_samples;
+        static_cast<float>(num_running_corrects*100) / num_samples;
     float eval_loss = running_loss / num_samples;
 
-    return {eval_accuracy, eval_loss};
+    return {eval_accuracy, eval_loss, total_inference_time, total_batchLoad_time};
 }
 
 template <typename T1, typename T2, typename T3>
 std::shared_ptr<T1>
 train_model(std::shared_ptr<T1> model, T2& train_data_loader,
             T3& test_data_loader, torch::Device& device,
-            float learning_rate = 1e-1, int64_t num_epochs = 200)
+            float learning_rate = 1e-1, int64_t num_epochs = 200, std::ofstream& outfile = 0)
 {
     model->train();
     model->to(device);
@@ -115,11 +130,13 @@ train_model(std::shared_ptr<T1> model, T2& train_data_loader,
 
     std::cout << std::fixed;
 
-    std::tuple<float, float> eval_result =
-        evaluate_model(model, test_data_loader, criterion, device);
+    std::tuple<float, float, float, float> eval_result = evaluate_model(model, test_data_loader, criterion, device);
     std::cout << std::setprecision(6) << "Epoch: " << std::setfill('0')
               << std::setw(3) << 0 << " Eval Loss: " << std::get<1>(eval_result)
               << " Eval Acc: " << std::get<0>(eval_result) << std::endl;
+              
+    auto everthing_time_start = std::chrono::high_resolution_clock::now();
+    float previous_wall_time{0.0};
 
     for (size_t epoch = 1; epoch <= num_epochs; epoch++)
     {
@@ -128,55 +145,84 @@ train_model(std::shared_ptr<T1> model, T2& train_data_loader,
         int64_t num_running_corrects = 0;
         int64_t num_samples = 0;
         float running_loss = 0;
-
+        float total_batchLoad_time{0.0};
+        float total_inference_time{0.0};
+        float total_training_time{0.0};
+        
         // Iterate the data loader to yield batches from the dataset.
         for (torch::data::Example<>& batch : *train_data_loader)
         {
+            auto start_batchLoad = std::chrono::high_resolution_clock::now();
             torch::Tensor inputs = batch.data.to(device);
             torch::Tensor labels = batch.target.to(device);
+            auto stop_batchLoad = std::chrono::high_resolution_clock::now();
+            total_batchLoad_time += std::chrono::duration_cast<std::chrono::milliseconds>(stop_batchLoad - start_batchLoad).count();
             // Reset gradients.
+            auto start_optimizer = std::chrono::high_resolution_clock::now();
             optimizer.zero_grad();
             // Execute the model on the input data.
+            auto inference_time_start = std::chrono::high_resolution_clock::now();
             torch::Tensor outputs = model->forward(inputs);
+            auto inference_time_stop = std::chrono::high_resolution_clock::now();
+            total_inference_time += std::chrono::duration_cast<std::chrono::milliseconds>(inference_time_stop - inference_time_start).count();
             // Compute a loss value to judge the prediction of our model.
             torch::Tensor loss = criterion(outputs, labels);
+            // Compute gradients of the loss w.r.t. the parameters of our model.
+            loss.backward();
+            // Update the parameters based on the calculated gradients.
+            optimizer.step();
+            auto stop_optimizer = std::chrono::high_resolution_clock::now();
+            total_training_time += std::chrono::duration_cast<std::chrono::milliseconds>(stop_optimizer-start_optimizer).count(); 
 
             torch::Tensor preds = std::get<1>(torch::max(outputs, 1));
             num_running_corrects += torch::sum(preds == labels).item<int64_t>();
             num_samples += inputs.size(0);
             running_loss += loss.item<float>() * inputs.size(0);
-
-            // Compute gradients of the loss w.r.t. the parameters of our model.
-            loss.backward();
-            // Update the parameters based on the calculated gradients.
-            optimizer.step();
         }
 
         float train_accuracy =
-            static_cast<float>(num_running_corrects) / num_samples;
+            static_cast<float>(num_running_corrects*100) / num_samples;
         float train_loss = running_loss / num_samples;
 
         model->eval();
 
-        std::tuple<float, float> eval_result =
+        std::tuple<float, float, float, float> eval_result =
             evaluate_model(model, test_data_loader, criterion, device);
+
+        float wall_time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()-everthing_time_start).count();
+
         std::cout << std::setprecision(6) << "Epoch: " << std::setfill('0')
-                  << std::setw(3) << epoch << " Train Loss: " << train_loss
+                  << std::setw(3) << epoch << " Time s: "<< wall_time/1000 <<" Epoch Time s: "<<(wall_time-previous_wall_time)/1000<<" Train Loss: " << train_loss
                   << " Train Acc: " << train_accuracy
                   << " Eval Loss: " << std::get<1>(eval_result)
                   << " Eval Acc: " << std::get<0>(eval_result) << std::endl;
 
+        
+        outfile << std::setprecision(6) << epoch <<","<< wall_time/1000 <<","<<(wall_time-previous_wall_time)/1000<<","
+                << train_loss <<","<< train_accuracy <<","
+                << std::get<1>(eval_result) <<","<< std::get<0>(eval_result) <<","
+                << std::endl;
         // scheduler.step();
+        previous_wall_time = wall_time;
     }
 
     return model;
 }
 
-int main()
+int main(int argc,char* argv[])
 {
+    if (argc != 3) {
+        std::cerr << "Syntax: " << argv[0] << " <text file name>\n";
+        return 1;
+    }
+    std::ofstream outfile{argv[1]};
+    if (! outfile.is_open ()) { return EXIT_FAILURE ; }
+
+    outfile<<"Epoch, Wall Time, Epoch time, Train_loss, Train_top_1, Test_loss, Test_top_1\r\n";
+
     const int64_t random_seed{0};
     const float learning_rate{1e-1};
-    const int64_t num_epochs{200};
+    const int64_t num_epochs{50};
     torch::manual_seed(random_seed);
     // torch::cuda::manual_seed(random_seed);
     const int64_t batch_size{128};
@@ -224,12 +270,26 @@ int main()
                                              .batch_size(batch_size)
                                              .workers(num_workers)
                                              .enforce_ordering(true));
+                                    
+    std::shared_ptr<ResNet<BasicBlock>> model{};
+    
+    int val = std::stoi(argv[2]);
+    std::cout<<val<<std::endl;
+    if (val== 1){
+        std::cout<<"Model:ResNet18"<<std::endl;
+        model = resnet18(/*num_classes = */ 10);
+    }
+    else if (val == 2)
+    {
+        std::cout<<"Model:ResNet32"<<std::endl;
+        model = resnet34(/*num_classes = */ 10);
+    }
 
-    std::shared_ptr<ResNet<BasicBlock>> model = resnet18(/*num_classes = */ 10);
+    
 
     std::cout << "Training Model..." << std::endl;
     model = train_model(model, train_data_loader, test_data_loader, device,
-                        learning_rate, num_epochs);
+                        learning_rate, num_epochs, outfile);
     std::cout << "Training Finished." << std::endl;
 
     torch::save(model, model_file_path);
@@ -239,7 +299,7 @@ int main()
     std::cout << "Measuring Latency..." << std::endl;
     float latency =
         measure_inference_latency(model, device, input_size, 100, 10);
-
+    outfile<<"Latency,"<<latency<<" in ms"<<std::endl;
     std::cout << "Inference Latency (BS = " << input_size.at(0)
               << "): " << std::setprecision(4) << latency << " [ms / image]"
               << std::endl;

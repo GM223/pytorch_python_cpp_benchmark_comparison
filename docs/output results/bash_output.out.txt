@@ -1,0 +1,229 @@
+root@f4e7cb44e78d:/workspace/project# bash benchmark.sh
+CPP ResNet18 save to cpp_resnet18_out.csv
+1
+Model:ResNet18
+Training Model...
+Epoch: 000 Eval Loss: 2.415753 Eval Acc: 13.000000
+Epoch: 001 Time s: 7.204000 Epoch Time s: 7.204000 Train Loss: 2.666896 Train Acc: 18.468000 Eval Loss: 2.007558 Eval Acc: 24.080000
+Epoch: 002 Time s: 14.314000 Epoch Time s: 7.110000 Train Loss: 1.793229 Train Acc: 30.222000 Eval Loss: 1.675472 Eval Acc: 36.990002
+Epoch: 003 Time s: 21.329000 Epoch Time s: 7.015000 Train Loss: 1.545258 Train Acc: 41.743999 Eval Loss: 1.478120 Eval Acc: 45.130001
+Epoch: 004 Time s: 28.358000 Epoch Time s: 7.029000 Train Loss: 1.358156 Train Acc: 49.872002 Eval Loss: 1.342971 Eval Acc: 50.840000
+Epoch: 005 Time s: 35.430000 Epoch Time s: 7.072000 Train Loss: 1.234269 Train Acc: 55.273998 Eval Loss: 1.179138 Eval Acc: 58.110001
+Epoch: 006 Time s: 42.514000 Epoch Time s: 7.084000 Train Loss: 1.122235 Train Acc: 59.944000 Eval Loss: 1.074007 Eval Acc: 62.810001
+Epoch: 007 Time s: 49.595001 Epoch Time s: 7.081000 Train Loss: 1.013882 Train Acc: 64.075996 Eval Loss: 1.037618 Eval Acc: 63.830002
+Epoch: 008 Time s: 56.685001 Epoch Time s: 7.090000 Train Loss: 0.913051 Train Acc: 67.842003 Eval Loss: 0.998237 Eval Acc: 64.980003
+Epoch: 009 Time s: 63.804001 Epoch Time s: 7.119000 Train Loss: 0.823862 Train Acc: 70.872002 Eval Loss: 0.966156 Eval Acc: 67.430000
+Epoch: 010 Time s: 70.934998 Epoch Time s: 7.131000 Train Loss: 0.750430 Train Acc: 73.550003 Eval Loss: 0.985290 Eval Acc: 66.989998
+Epoch: 011 Time s: 78.031998 Epoch Time s: 7.097000 Train Loss: 0.683659 Train Acc: 76.043999 Eval Loss: 0.938056 Eval Acc: 67.720001
+Epoch: 012 Time s: 85.129997 Epoch Time s: 7.098000 Train Loss: 0.618226 Train Acc: 78.192001 Eval Loss: 0.930326 Eval Acc: 69.599998
+Epoch: 013 Time s: 92.263000 Epoch Time s: 7.133000 Train Loss: 0.561631 Train Acc: 80.379997 Eval Loss: 0.996370 Eval Acc: 69.029999
+Epoch: 014 Time s: 99.389999 Epoch Time s: 7.127000 Train Loss: 0.513965 Train Acc: 81.977997 Eval Loss: 0.977397 Eval Acc: 69.879997
+Epoch: 015 Time s: 106.539001 Epoch Time s: 7.149000 Train Loss: 0.447753 Train Acc: 84.528000 Eval Loss: 0.954724 Eval Acc: 70.260002
+Epoch: 016 Time s: 113.712997 Epoch Time s: 7.174000 Train Loss: 0.400878 Train Acc: 86.127998 Eval Loss: 1.017231 Eval Acc: 70.050003
+Epoch: 017 Time s: 120.861000 Epoch Time s: 7.148000 Train Loss: 0.358294 Train Acc: 87.473999 Eval Loss: 1.063371 Eval Acc: 69.099998
+Epoch: 018 Time s: 128.016998 Epoch Time s: 7.156000 Train Loss: 0.314762 Train Acc: 89.101997 Eval Loss: 1.102164 Eval Acc: 69.559998
+Epoch: 019 Time s: 135.158997 Epoch Time s: 7.142000 Train Loss: 0.290127 Train Acc: 89.898003 Eval Loss: 1.050612 Eval Acc: 71.430000
+Epoch: 020 Time s: 142.313995 Epoch Time s: 7.155000 Train Loss: 0.261475 Train Acc: 90.832001 Eval Loss: 1.078391 Eval Acc: 69.000000
+Epoch: 021 Time s: 149.487000 Epoch Time s: 7.173000 Train Loss: 0.234308 Train Acc: 91.806000 Eval Loss: 1.233853 Eval Acc: 69.209999
+Epoch: 022 Time s: 156.662003 Epoch Time s: 7.175000 Train Loss: 0.223300 Train Acc: 92.244003 Eval Loss: 1.143110 Eval Acc: 70.160004
+Epoch: 023 Time s: 163.901993 Epoch Time s: 7.240000 Train Loss: 0.203147 Train Acc: 93.050003 Eval Loss: 1.217782 Eval Acc: 70.279999
+Epoch: 024 Time s: 171.095993 Epoch Time s: 7.194000 Train Loss: 0.186323 Train Acc: 93.414001 Eval Loss: 1.334630 Eval Acc: 68.779999
+Epoch: 025 Time s: 178.371994 Epoch Time s: 7.276000 Train Loss: 0.177416 Train Acc: 93.806000 Eval Loss: 1.170392 Eval Acc: 70.769997
+Epoch: 026 Time s: 185.675995 Epoch Time s: 7.304000 Train Loss: 0.162868 Train Acc: 94.374001 Eval Loss: 1.174682 Eval Acc: 71.260002
+Epoch: 027 Time s: 192.977997 Epoch Time s: 7.302000 Train Loss: 0.160496 Train Acc: 94.466003 Eval Loss: 1.276586 Eval Acc: 70.769997
+Epoch: 028 Time s: 200.326004 Epoch Time s: 7.348000 Train Loss: 0.160977 Train Acc: 94.367996 Eval Loss: 1.308223 Eval Acc: 69.459999
+Epoch: 029 Time s: 207.682007 Epoch Time s: 7.356000 Train Loss: 0.145637 Train Acc: 95.038002 Eval Loss: 1.307016 Eval Acc: 69.820000
+Epoch: 030 Time s: 214.994995 Epoch Time s: 7.313000 Train Loss: 0.136015 Train Acc: 95.306000 Eval Loss: 1.305526 Eval Acc: 69.809998
+Epoch: 031 Time s: 222.294998 Epoch Time s: 7.300000 Train Loss: 0.134750 Train Acc: 95.365997 Eval Loss: 1.200947 Eval Acc: 71.610001
+Epoch: 032 Time s: 229.645004 Epoch Time s: 7.350000 Train Loss: 0.130298 Train Acc: 95.510002 Eval Loss: 1.288334 Eval Acc: 70.739998
+Epoch: 033 Time s: 236.886993 Epoch Time s: 7.242000 Train Loss: 0.127600 Train Acc: 95.639999 Eval Loss: 1.314834 Eval Acc: 70.440002
+Epoch: 034 Time s: 244.283997 Epoch Time s: 7.397000 Train Loss: 0.125286 Train Acc: 95.662003 Eval Loss: 1.348222 Eval Acc: 69.790001
+Epoch: 035 Time s: 251.598007 Epoch Time s: 7.314000 Train Loss: 0.114515 Train Acc: 96.001999 Eval Loss: 1.363919 Eval Acc: 70.599998
+Epoch: 036 Time s: 258.873993 Epoch Time s: 7.276000 Train Loss: 0.123379 Train Acc: 95.753998 Eval Loss: 1.269168 Eval Acc: 70.930000
+Epoch: 037 Time s: 266.444000 Epoch Time s: 7.570000 Train Loss: 0.112962 Train Acc: 96.068001 Eval Loss: 1.374126 Eval Acc: 70.720001
+Epoch: 038 Time s: 273.847992 Epoch Time s: 7.404000 Train Loss: 0.115074 Train Acc: 96.043999 Eval Loss: 1.388464 Eval Acc: 69.050003
+Epoch: 039 Time s: 281.337006 Epoch Time s: 7.489000 Train Loss: 0.116899 Train Acc: 95.980003 Eval Loss: 1.333429 Eval Acc: 70.790001
+Epoch: 040 Time s: 288.648010 Epoch Time s: 7.311000 Train Loss: 0.113137 Train Acc: 96.155998 Eval Loss: 1.302105 Eval Acc: 70.389999
+Epoch: 041 Time s: 295.984009 Epoch Time s: 7.336000 Train Loss: 0.111241 Train Acc: 96.232002 Eval Loss: 1.312275 Eval Acc: 70.980003
+Epoch: 042 Time s: 303.299011 Epoch Time s: 7.315000 Train Loss: 0.104555 Train Acc: 96.391998 Eval Loss: 1.332286 Eval Acc: 71.120003
+Epoch: 043 Time s: 310.623993 Epoch Time s: 7.325000 Train Loss: 0.111851 Train Acc: 96.096001 Eval Loss: 1.271303 Eval Acc: 70.629997
+Epoch: 044 Time s: 317.842987 Epoch Time s: 7.219000 Train Loss: 0.100955 Train Acc: 96.589996 Eval Loss: 1.315142 Eval Acc: 70.449997
+Epoch: 045 Time s: 325.097992 Epoch Time s: 7.255000 Train Loss: 0.107454 Train Acc: 96.269997 Eval Loss: 1.263448 Eval Acc: 72.050003
+Epoch: 046 Time s: 332.330994 Epoch Time s: 7.233000 Train Loss: 0.099275 Train Acc: 96.662003 Eval Loss: 1.327060 Eval Acc: 70.919998
+Epoch: 047 Time s: 339.578003 Epoch Time s: 7.247000 Train Loss: 0.104202 Train Acc: 96.510002 Eval Loss: 1.225261 Eval Acc: 71.900002
+Epoch: 048 Time s: 346.811005 Epoch Time s: 7.233000 Train Loss: 0.099420 Train Acc: 96.543999 Eval Loss: 1.316360 Eval Acc: 71.489998
+Epoch: 049 Time s: 354.118988 Epoch Time s: 7.308000 Train Loss: 0.107042 Train Acc: 96.321999 Eval Loss: 1.266584 Eval Acc: 71.660004
+Epoch: 050 Time s: 361.813995 Epoch Time s: 7.695000 Train Loss: 0.094817 Train Acc: 96.683998 Eval Loss: 1.348536 Eval Acc: 70.440002
+Training Finished.
+Measuring Latency...
+Inference Latency (BS = 1): 3.3100 [ms / image]
+CPP ResNet34 save to cpp_resnet34_out.csv
+2
+Model:ResNet32
+Training Model...
+Epoch: 000 Eval Loss: 13.430250 Eval Acc: 10.000000
+Epoch: 001 Time s: 11.053000 Epoch Time s: 11.053000 Train Loss: 2.473759 Train Acc: 22.004000 Eval Loss: 1.775753 Eval Acc: 33.419998
+Epoch: 002 Time s: 21.877001 Epoch Time s: 10.824000 Train Loss: 1.601655 Train Acc: 40.638000 Eval Loss: 1.506924 Eval Acc: 44.070000
+Epoch: 003 Time s: 32.706001 Epoch Time s: 10.829000 Train Loss: 1.394756 Train Acc: 48.900002 Eval Loss: 1.299156 Eval Acc: 52.270000
+Epoch: 004 Time s: 43.550999 Epoch Time s: 10.845000 Train Loss: 1.225155 Train Acc: 55.560001 Eval Loss: 1.306576 Eval Acc: 53.660000
+Epoch: 005 Time s: 54.428001 Epoch Time s: 10.877000 Train Loss: 1.085897 Train Acc: 61.102001 Eval Loss: 1.101201 Eval Acc: 60.480000
+Epoch: 006 Time s: 65.321999 Epoch Time s: 10.894000 Train Loss: 0.972754 Train Acc: 65.253998 Eval Loss: 1.094788 Eval Acc: 61.430000
+Epoch: 007 Time s: 76.251999 Epoch Time s: 10.930000 Train Loss: 0.870541 Train Acc: 69.293999 Eval Loss: 0.991828 Eval Acc: 65.769997
+Epoch: 008 Time s: 87.124001 Epoch Time s: 10.872000 Train Loss: 0.781315 Train Acc: 72.652000 Eval Loss: 1.000134 Eval Acc: 65.580002
+Epoch: 009 Time s: 98.025002 Epoch Time s: 10.901000 Train Loss: 0.713332 Train Acc: 75.204002 Eval Loss: 1.431009 Eval Acc: 64.660004
+Epoch: 010 Time s: 108.935997 Epoch Time s: 10.911000 Train Loss: 0.646528 Train Acc: 77.382004 Eval Loss: 0.894405 Eval Acc: 70.400002
+Epoch: 011 Time s: 119.834000 Epoch Time s: 10.898000 Train Loss: 0.593123 Train Acc: 79.403999 Eval Loss: 0.978000 Eval Acc: 68.629997
+Epoch: 012 Time s: 130.804001 Epoch Time s: 10.970000 Train Loss: 0.527841 Train Acc: 81.440002 Eval Loss: 1.042896 Eval Acc: 67.769997
+Epoch: 013 Time s: 141.789993 Epoch Time s: 10.986000 Train Loss: 0.463664 Train Acc: 83.617996 Eval Loss: 0.954292 Eval Acc: 69.839996
+Epoch: 014 Time s: 152.830994 Epoch Time s: 11.041000 Train Loss: 0.489394 Train Acc: 82.835999 Eval Loss: 0.989119 Eval Acc: 69.919998
+Epoch: 015 Time s: 163.886993 Epoch Time s: 11.056000 Train Loss: 0.406651 Train Acc: 86.038002 Eval Loss: 1.021126 Eval Acc: 70.239998
+Epoch: 016 Time s: 174.904007 Epoch Time s: 11.017000 Train Loss: 0.344916 Train Acc: 87.956001 Eval Loss: 1.042816 Eval Acc: 70.070000
+Epoch: 017 Time s: 185.865997 Epoch Time s: 10.962000 Train Loss: 0.320940 Train Acc: 88.823997 Eval Loss: 1.047940 Eval Acc: 70.529999
+Epoch: 018 Time s: 196.837997 Epoch Time s: 10.972000 Train Loss: 0.277964 Train Acc: 90.398003 Eval Loss: 1.079798 Eval Acc: 71.320000
+Epoch: 019 Time s: 207.806000 Epoch Time s: 10.968000 Train Loss: 0.250622 Train Acc: 91.372002 Eval Loss: 1.042148 Eval Acc: 70.349998
+Epoch: 020 Time s: 218.865997 Epoch Time s: 11.060000 Train Loss: 0.233849 Train Acc: 91.944000 Eval Loss: 1.174524 Eval Acc: 70.080002
+Epoch: 021 Time s: 229.856995 Epoch Time s: 10.991000 Train Loss: 0.231757 Train Acc: 91.949997 Eval Loss: 1.218874 Eval Acc: 69.660004
+Epoch: 022 Time s: 240.847000 Epoch Time s: 10.990000 Train Loss: 0.222688 Train Acc: 92.339996 Eval Loss: 1.160069 Eval Acc: 70.730003
+Epoch: 023 Time s: 251.901001 Epoch Time s: 11.054000 Train Loss: 0.183307 Train Acc: 93.625999 Eval Loss: 1.229344 Eval Acc: 70.480003
+Epoch: 024 Time s: 262.933014 Epoch Time s: 11.032000 Train Loss: 0.180911 Train Acc: 93.666000 Eval Loss: 1.184713 Eval Acc: 71.519997
+Epoch: 025 Time s: 273.941986 Epoch Time s: 11.009000 Train Loss: 0.146571 Train Acc: 94.862000 Eval Loss: 1.252227 Eval Acc: 70.930000
+Epoch: 026 Time s: 284.959991 Epoch Time s: 11.018000 Train Loss: 0.183357 Train Acc: 93.681999 Eval Loss: 1.196323 Eval Acc: 70.389999
+Epoch: 027 Time s: 295.980988 Epoch Time s: 11.021000 Train Loss: 0.145461 Train Acc: 95.005997 Eval Loss: 1.213553 Eval Acc: 71.290001
+Epoch: 028 Time s: 307.036011 Epoch Time s: 11.055000 Train Loss: 0.129206 Train Acc: 95.538002 Eval Loss: 1.289009 Eval Acc: 70.550003
+Epoch: 029 Time s: 318.209015 Epoch Time s: 11.173000 Train Loss: 0.124713 Train Acc: 95.603996 Eval Loss: 1.268303 Eval Acc: 70.669998
+Epoch: 030 Time s: 329.398010 Epoch Time s: 11.189000 Train Loss: 0.133768 Train Acc: 95.281998 Eval Loss: 1.219096 Eval Acc: 70.400002
+Epoch: 031 Time s: 340.532990 Epoch Time s: 11.135000 Train Loss: 0.119699 Train Acc: 95.902000 Eval Loss: 1.282996 Eval Acc: 70.650002
+Epoch: 032 Time s: 351.613007 Epoch Time s: 11.080000 Train Loss: 0.117915 Train Acc: 95.931999 Eval Loss: 1.276486 Eval Acc: 71.470001
+Epoch: 033 Time s: 362.707001 Epoch Time s: 11.094000 Train Loss: 0.112371 Train Acc: 96.098000 Eval Loss: 1.308305 Eval Acc: 70.870003
+Epoch: 034 Time s: 373.880005 Epoch Time s: 11.173000 Train Loss: 0.113802 Train Acc: 96.080002 Eval Loss: 1.328108 Eval Acc: 71.489998
+Epoch: 035 Time s: 384.933990 Epoch Time s: 11.054000 Train Loss: 0.118031 Train Acc: 95.889999 Eval Loss: 1.189600 Eval Acc: 72.059998
+Epoch: 036 Time s: 396.170013 Epoch Time s: 11.236000 Train Loss: 0.110516 Train Acc: 96.241997 Eval Loss: 1.313228 Eval Acc: 70.169998
+Epoch: 037 Time s: 407.503998 Epoch Time s: 11.334000 Train Loss: 0.114158 Train Acc: 96.038002 Eval Loss: 1.253328 Eval Acc: 71.779999
+Epoch: 038 Time s: 418.876007 Epoch Time s: 11.372000 Train Loss: 0.105371 Train Acc: 96.363998 Eval Loss: 1.312803 Eval Acc: 70.730003
+Epoch: 039 Time s: 430.071014 Epoch Time s: 11.195000 Train Loss: 0.111457 Train Acc: 96.264000 Eval Loss: 1.208057 Eval Acc: 71.919998
+Epoch: 040 Time s: 441.259003 Epoch Time s: 11.188000 Train Loss: 0.106885 Train Acc: 96.281998 Eval Loss: 1.258714 Eval Acc: 71.220001
+Epoch: 041 Time s: 452.437988 Epoch Time s: 11.179000 Train Loss: 0.110748 Train Acc: 96.251999 Eval Loss: 1.359344 Eval Acc: 69.730003
+Epoch: 042 Time s: 463.639008 Epoch Time s: 11.201000 Train Loss: 0.104759 Train Acc: 96.360001 Eval Loss: 1.308053 Eval Acc: 69.919998
+Epoch: 043 Time s: 474.816986 Epoch Time s: 11.178000 Train Loss: 0.101270 Train Acc: 96.556000 Eval Loss: 1.306753 Eval Acc: 71.019997
+Epoch: 044 Time s: 486.022003 Epoch Time s: 11.205000 Train Loss: 0.098713 Train Acc: 96.578003 Eval Loss: 1.230998 Eval Acc: 71.650002
+Epoch: 045 Time s: 497.227997 Epoch Time s: 11.206000 Train Loss: 0.104643 Train Acc: 96.424004 Eval Loss: 1.269582 Eval Acc: 71.010002
+Epoch: 046 Time s: 508.436005 Epoch Time s: 11.208000 Train Loss: 0.109181 Train Acc: 96.234001 Eval Loss: 1.184323 Eval Acc: 72.620003
+Epoch: 047 Time s: 519.682007 Epoch Time s: 11.246000 Train Loss: 0.100969 Train Acc: 96.533997 Eval Loss: 1.254316 Eval Acc: 71.139999
+Epoch: 048 Time s: 530.893982 Epoch Time s: 11.212000 Train Loss: 0.098339 Train Acc: 96.680000 Eval Loss: 1.394709 Eval Acc: 69.800003
+Epoch: 049 Time s: 542.117981 Epoch Time s: 11.224000 Train Loss: 0.104747 Train Acc: 96.398003 Eval Loss: 1.267148 Eval Acc: 71.410004
+Epoch: 050 Time s: 553.106018 Epoch Time s: 10.988000 Train Loss: 0.105326 Train Acc: 96.405998 Eval Loss: 1.251644 Eval Acc: 72.059998
+Training Finished.
+Measuring Latency...
+Inference Latency (BS = 1): 4.2300 [ms / image]
+Python ResNet18 save to python_resnet18_out.csv
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Building model..
+Epoch: 1 Wall Time: 28.969895 s Epoch time  28.969895 s Train Loss: 1.802349 Train Acc: 34.558000 Eval Loss: 1.501006 Eval Acc: 44.300000
+Epoch: 2 Wall Time: 25.581035 s Epoch time  54.550930 s Train Loss: 1.348463 Train Acc: 50.766000 Eval Loss: 1.175056 Eval Acc: 57.330000
+Epoch: 3 Wall Time: 25.633772 s Epoch time  80.184702 s Train Loss: 1.069961 Train Acc: 61.828000 Eval Loss: 0.932726 Eval Acc: 67.150000
+Epoch: 4 Wall Time: 25.755162 s Epoch time  105.939864 s Train Loss: 0.875627 Train Acc: 68.820000 Eval Loss: 0.798373 Eval Acc: 72.430000
+Epoch: 5 Wall Time: 25.781935 s Epoch time  131.721799 s Train Loss: 0.733888 Train Acc: 74.352000 Eval Loss: 0.695727 Eval Acc: 76.330000
+Epoch: 6 Wall Time: 25.589478 s Epoch time  157.311277 s Train Loss: 0.627986 Train Acc: 78.148000 Eval Loss: 0.646855 Eval Acc: 78.350000
+Epoch: 7 Wall Time: 25.783276 s Epoch time  183.094552 s Train Loss: 0.558190 Train Acc: 80.686000 Eval Loss: 0.641055 Eval Acc: 78.900000
+Epoch: 8 Wall Time: 25.955852 s Epoch time  209.050404 s Train Loss: 0.498016 Train Acc: 82.820000 Eval Loss: 0.615390 Eval Acc: 80.480000
+Epoch: 9 Wall Time: 25.611039 s Epoch time  234.661444 s Train Loss: 0.454787 Train Acc: 84.182000 Eval Loss: 0.483962 Eval Acc: 83.740000
+Epoch: 10 Wall Time: 25.742463 s Epoch time  260.403907 s Train Loss: 0.420361 Train Acc: 85.396000 Eval Loss: 0.489810 Eval Acc: 83.780000
+Epoch: 11 Wall Time: 25.657855 s Epoch time  286.061762 s Train Loss: 0.383793 Train Acc: 86.850000 Eval Loss: 0.485656 Eval Acc: 84.290000
+Epoch: 12 Wall Time: 25.561431 s Epoch time  311.623193 s Train Loss: 0.357827 Train Acc: 87.486000 Eval Loss: 0.454775 Eval Acc: 84.880000
+Epoch: 13 Wall Time: 25.749541 s Epoch time  337.372734 s Train Loss: 0.332126 Train Acc: 88.562000 Eval Loss: 0.453972 Eval Acc: 85.140000
+Epoch: 14 Wall Time: 25.651771 s Epoch time  363.024504 s Train Loss: 0.309639 Train Acc: 89.242000 Eval Loss: 0.430156 Eval Acc: 86.010000
+Epoch: 15 Wall Time: 25.613485 s Epoch time  388.637989 s Train Loss: 0.291391 Train Acc: 89.758000 Eval Loss: 0.447312 Eval Acc: 85.630000
+Epoch: 16 Wall Time: 25.852506 s Epoch time  414.490496 s Train Loss: 0.273349 Train Acc: 90.496000 Eval Loss: 0.388162 Eval Acc: 87.530000
+Epoch: 17 Wall Time: 25.902362 s Epoch time  440.392858 s Train Loss: 0.259947 Train Acc: 90.888000 Eval Loss: 0.389005 Eval Acc: 87.390000
+Epoch: 18 Wall Time: 25.767710 s Epoch time  466.160568 s Train Loss: 0.241238 Train Acc: 91.610000 Eval Loss: 0.396532 Eval Acc: 87.270000
+Epoch: 19 Wall Time: 25.703677 s Epoch time  491.864245 s Train Loss: 0.226762 Train Acc: 92.062000 Eval Loss: 0.425937 Eval Acc: 86.870000
+Epoch: 20 Wall Time: 25.829560 s Epoch time  517.693805 s Train Loss: 0.223515 Train Acc: 92.212000 Eval Loss: 0.422655 Eval Acc: 86.700000
+Epoch: 21 Wall Time: 25.682976 s Epoch time  543.376781 s Train Loss: 0.207919 Train Acc: 92.682000 Eval Loss: 0.407423 Eval Acc: 87.710000
+Epoch: 22 Wall Time: 25.979269 s Epoch time  569.356050 s Train Loss: 0.201414 Train Acc: 92.876000 Eval Loss: 0.379194 Eval Acc: 88.090000
+Epoch: 23 Wall Time: 25.584682 s Epoch time  594.940732 s Train Loss: 0.191056 Train Acc: 93.310000 Eval Loss: 0.455584 Eval Acc: 87.000000
+Epoch: 24 Wall Time: 25.795770 s Epoch time  620.736502 s Train Loss: 0.187762 Train Acc: 93.338000 Eval Loss: 0.386894 Eval Acc: 87.810000
+Epoch: 25 Wall Time: 25.880847 s Epoch time  646.617349 s Train Loss: 0.177396 Train Acc: 93.700000 Eval Loss: 0.414145 Eval Acc: 87.350000
+Epoch: 26 Wall Time: 25.797280 s Epoch time  672.414629 s Train Loss: 0.173115 Train Acc: 93.840000 Eval Loss: 0.408788 Eval Acc: 87.700000
+Epoch: 27 Wall Time: 25.767608 s Epoch time  698.182237 s Train Loss: 0.168339 Train Acc: 94.082000 Eval Loss: 0.403996 Eval Acc: 88.210000
+Epoch: 28 Wall Time: 25.953288 s Epoch time  724.135525 s Train Loss: 0.161334 Train Acc: 94.286000 Eval Loss: 0.407407 Eval Acc: 88.000000
+Epoch: 29 Wall Time: 25.731978 s Epoch time  749.867503 s Train Loss: 0.154782 Train Acc: 94.636000 Eval Loss: 0.361877 Eval Acc: 89.540000
+Epoch: 30 Wall Time: 25.875782 s Epoch time  775.743285 s Train Loss: 0.153566 Train Acc: 94.520000 Eval Loss: 0.383072 Eval Acc: 88.990000
+Epoch: 31 Wall Time: 25.711236 s Epoch time  801.454522 s Train Loss: 0.147985 Train Acc: 94.828000 Eval Loss: 0.436379 Eval Acc: 87.620000
+Epoch: 32 Wall Time: 25.603573 s Epoch time  827.058094 s Train Loss: 0.143010 Train Acc: 94.988000 Eval Loss: 0.412680 Eval Acc: 88.340000
+Epoch: 33 Wall Time: 25.638299 s Epoch time  852.696393 s Train Loss: 0.143053 Train Acc: 95.030000 Eval Loss: 0.443434 Eval Acc: 87.570000
+Epoch: 34 Wall Time: 25.597420 s Epoch time  878.293813 s Train Loss: 0.138846 Train Acc: 95.126000 Eval Loss: 0.422506 Eval Acc: 87.930000
+Epoch: 35 Wall Time: 25.819795 s Epoch time  904.113608 s Train Loss: 0.135414 Train Acc: 95.184000 Eval Loss: 0.423293 Eval Acc: 88.470000
+Epoch: 36 Wall Time: 25.662108 s Epoch time  929.775716 s Train Loss: 0.137267 Train Acc: 95.124000 Eval Loss: 0.386005 Eval Acc: 89.000000
+Epoch: 37 Wall Time: 25.836354 s Epoch time  955.612070 s Train Loss: 0.129554 Train Acc: 95.472000 Eval Loss: 0.417347 Eval Acc: 88.040000
+Epoch: 38 Wall Time: 25.604567 s Epoch time  981.216636 s Train Loss: 0.130453 Train Acc: 95.322000 Eval Loss: 0.378649 Eval Acc: 89.190000
+Epoch: 39 Wall Time: 25.880734 s Epoch time  1007.097370 s Train Loss: 0.129550 Train Acc: 95.426000 Eval Loss: 0.395837 Eval Acc: 89.070000
+Epoch: 40 Wall Time: 25.865789 s Epoch time  1032.963159 s Train Loss: 0.122924 Train Acc: 95.754000 Eval Loss: 0.462757 Eval Acc: 87.840000
+Epoch: 41 Wall Time: 25.651314 s Epoch time  1058.614473 s Train Loss: 0.125165 Train Acc: 95.580000 Eval Loss: 0.431293 Eval Acc: 88.350000
+Epoch: 42 Wall Time: 25.672840 s Epoch time  1084.287313 s Train Loss: 0.119733 Train Acc: 95.724000 Eval Loss: 0.396639 Eval Acc: 89.000000
+Epoch: 43 Wall Time: 25.796393 s Epoch time  1110.083706 s Train Loss: 0.118727 Train Acc: 95.900000 Eval Loss: 0.443886 Eval Acc: 88.490000
+Epoch: 44 Wall Time: 25.426883 s Epoch time  1135.510588 s Train Loss: 0.117837 Train Acc: 95.776000 Eval Loss: 0.440255 Eval Acc: 87.960000
+Epoch: 45 Wall Time: 25.506303 s Epoch time  1161.016891 s Train Loss: 0.116927 Train Acc: 95.848000 Eval Loss: 0.445415 Eval Acc: 88.890000
+Epoch: 46 Wall Time: 25.564151 s Epoch time  1186.581042 s Train Loss: 0.116776 Train Acc: 95.824000 Eval Loss: 0.465712 Eval Acc: 87.800000
+Epoch: 47 Wall Time: 25.539402 s Epoch time  1212.120443 s Train Loss: 0.109447 Train Acc: 96.198000 Eval Loss: 0.419614 Eval Acc: 88.260000
+Epoch: 48 Wall Time: 25.777848 s Epoch time  1237.898292 s Train Loss: 0.112628 Train Acc: 96.046000 Eval Loss: 0.447709 Eval Acc: 88.330000
+Epoch: 49 Wall Time: 25.668941 s Epoch time  1263.567233 s Train Loss: 0.105327 Train Acc: 96.360000 Eval Loss: 0.370224 Eval Acc: 89.940000
+Epoch: 50 Wall Time: 25.550772 s Epoch time  1289.118005 s Train Loss: 0.107002 Train Acc: 96.238000 Eval Loss: 0.449515 Eval Acc: 88.410000
+Inference Latency (BS = 1): 2.307882560491562 [ms / image]
+Python ResNet32 save to python_resnet32_out.csv
+==> Preparing data..
+Files already downloaded and verified
+Files already downloaded and verified
+==> Building model..
+Epoch: 1 Wall Time: 46.750644 s Epoch time  46.750644 s Train Loss: 2.098090 Train Acc: 25.512000 Eval Loss: 1.681687 Eval Acc: 36.710000
+Epoch: 2 Wall Time: 43.937011 s Epoch time  90.687655 s Train Loss: 1.638479 Train Acc: 38.356000 Eval Loss: 1.492434 Eval Acc: 43.870000
+Epoch: 3 Wall Time: 44.542014 s Epoch time  135.229669 s Train Loss: 1.457105 Train Acc: 46.262000 Eval Loss: 1.370374 Eval Acc: 50.830000
+Epoch: 4 Wall Time: 45.071818 s Epoch time  180.301488 s Train Loss: 1.276496 Train Acc: 53.554000 Eval Loss: 1.217460 Eval Acc: 56.990000
+Epoch: 5 Wall Time: 44.288081 s Epoch time  224.589569 s Train Loss: 1.074803 Train Acc: 61.746000 Eval Loss: 1.021059 Eval Acc: 64.090000
+Epoch: 6 Wall Time: 44.474247 s Epoch time  269.063816 s Train Loss: 0.926315 Train Acc: 67.296000 Eval Loss: 0.860699 Eval Acc: 69.930000
+Epoch: 7 Wall Time: 44.692340 s Epoch time  313.756156 s Train Loss: 0.812267 Train Acc: 71.364000 Eval Loss: 0.803947 Eval Acc: 72.520000
+Epoch: 8 Wall Time: 45.124342 s Epoch time  358.880498 s Train Loss: 0.716241 Train Acc: 75.074000 Eval Loss: 0.718087 Eval Acc: 75.280000
+Epoch: 9 Wall Time: 44.803528 s Epoch time  403.684026 s Train Loss: 0.634226 Train Acc: 77.842000 Eval Loss: 0.612603 Eval Acc: 78.930000
+Epoch: 10 Wall Time: 45.121741 s Epoch time  448.805767 s Train Loss: 0.570226 Train Acc: 80.182000 Eval Loss: 0.604549 Eval Acc: 79.430000
+Epoch: 11 Wall Time: 45.618381 s Epoch time  494.424148 s Train Loss: 0.520134 Train Acc: 82.072000 Eval Loss: 0.599228 Eval Acc: 79.750000
+Epoch: 12 Wall Time: 44.756581 s Epoch time  539.180730 s Train Loss: 0.479037 Train Acc: 83.430000 Eval Loss: 0.607223 Eval Acc: 79.980000
+Epoch: 13 Wall Time: 44.674063 s Epoch time  583.854793 s Train Loss: 0.448097 Train Acc: 84.376000 Eval Loss: 0.532513 Eval Acc: 82.250000
+Epoch: 14 Wall Time: 44.305205 s Epoch time  628.159997 s Train Loss: 0.419645 Train Acc: 85.372000 Eval Loss: 0.490479 Eval Acc: 84.160000
+Epoch: 15 Wall Time: 44.331433 s Epoch time  672.491431 s Train Loss: 0.393115 Train Acc: 86.356000 Eval Loss: 0.489536 Eval Acc: 83.880000
+Epoch: 16 Wall Time: 44.053031 s Epoch time  716.544462 s Train Loss: 0.364351 Train Acc: 87.342000 Eval Loss: 0.497026 Eval Acc: 84.210000
+Epoch: 17 Wall Time: 44.276169 s Epoch time  760.820631 s Train Loss: 0.346379 Train Acc: 87.854000 Eval Loss: 0.465662 Eval Acc: 84.950000
+Epoch: 18 Wall Time: 44.198347 s Epoch time  805.018978 s Train Loss: 0.334201 Train Acc: 88.448000 Eval Loss: 0.407873 Eval Acc: 86.420000
+Epoch: 19 Wall Time: 43.679915 s Epoch time  848.698893 s Train Loss: 0.309711 Train Acc: 89.116000 Eval Loss: 0.443331 Eval Acc: 85.780000
+Epoch: 20 Wall Time: 43.758856 s Epoch time  892.457749 s Train Loss: 0.288803 Train Acc: 90.050000 Eval Loss: 0.440977 Eval Acc: 86.010000
+Epoch: 21 Wall Time: 43.629427 s Epoch time  936.087176 s Train Loss: 0.277706 Train Acc: 90.384000 Eval Loss: 0.398027 Eval Acc: 87.250000
+Epoch: 22 Wall Time: 43.816484 s Epoch time  979.903660 s Train Loss: 0.264917 Train Acc: 90.856000 Eval Loss: 0.429911 Eval Acc: 86.100000
+Epoch: 23 Wall Time: 43.936506 s Epoch time  1023.840167 s Train Loss: 0.249708 Train Acc: 91.336000 Eval Loss: 0.397637 Eval Acc: 87.240000
+Epoch: 24 Wall Time: 44.022771 s Epoch time  1067.862938 s Train Loss: 0.240810 Train Acc: 91.592000 Eval Loss: 0.491514 Eval Acc: 85.710000
+Epoch: 25 Wall Time: 44.293510 s Epoch time  1112.156448 s Train Loss: 0.230476 Train Acc: 91.816000 Eval Loss: 0.449272 Eval Acc: 86.460000
+Epoch: 26 Wall Time: 43.459986 s Epoch time  1155.616434 s Train Loss: 0.222087 Train Acc: 92.252000 Eval Loss: 0.427826 Eval Acc: 86.760000
+Epoch: 27 Wall Time: 43.604608 s Epoch time  1199.221042 s Train Loss: 0.208260 Train Acc: 92.720000 Eval Loss: 0.384140 Eval Acc: 87.750000
+Epoch: 28 Wall Time: 43.455675 s Epoch time  1242.676717 s Train Loss: 0.204778 Train Acc: 92.794000 Eval Loss: 0.451495 Eval Acc: 86.380000
+Epoch: 29 Wall Time: 43.600055 s Epoch time  1286.276771 s Train Loss: 0.196623 Train Acc: 93.100000 Eval Loss: 0.393025 Eval Acc: 88.250000
+Epoch: 30 Wall Time: 43.776478 s Epoch time  1330.053249 s Train Loss: 0.184699 Train Acc: 93.610000 Eval Loss: 0.466238 Eval Acc: 86.400000
+Epoch: 31 Wall Time: 43.981102 s Epoch time  1374.034351 s Train Loss: 0.183495 Train Acc: 93.510000 Eval Loss: 0.379320 Eval Acc: 88.240000
+Epoch: 32 Wall Time: 43.740379 s Epoch time  1417.774730 s Train Loss: 0.176378 Train Acc: 93.740000 Eval Loss: 0.403728 Eval Acc: 88.030000
+Epoch: 33 Wall Time: 44.035126 s Epoch time  1461.809856 s Train Loss: 0.170712 Train Acc: 93.990000 Eval Loss: 0.371721 Eval Acc: 88.900000
+Epoch: 34 Wall Time: 43.458215 s Epoch time  1505.268071 s Train Loss: 0.166413 Train Acc: 94.134000 Eval Loss: 0.374222 Eval Acc: 88.910000
+Epoch: 35 Wall Time: 43.701577 s Epoch time  1548.969648 s Train Loss: 0.155430 Train Acc: 94.538000 Eval Loss: 0.390270 Eval Acc: 88.640000
+Epoch: 36 Wall Time: 44.000976 s Epoch time  1592.970624 s Train Loss: 0.160669 Train Acc: 94.356000 Eval Loss: 0.468464 Eval Acc: 86.390000
+Epoch: 37 Wall Time: 43.481424 s Epoch time  1636.452048 s Train Loss: 0.149342 Train Acc: 94.774000 Eval Loss: 0.448368 Eval Acc: 87.770000
+Epoch: 38 Wall Time: 43.559268 s Epoch time  1680.011316 s Train Loss: 0.147437 Train Acc: 94.760000 Eval Loss: 0.440729 Eval Acc: 87.450000
+Epoch: 39 Wall Time: 169.025489 s Epoch time  1849.036805 s Train Loss: 0.146711 Train Acc: 94.824000 Eval Loss: 0.430956 Eval Acc: 87.990000
+Epoch: 40 Wall Time: 43.102968 s Epoch time  1892.139773 s Train Loss: 0.141352 Train Acc: 95.086000 Eval Loss: 0.394136 Eval Acc: 88.540000
+Epoch: 41 Wall Time: 43.175372 s Epoch time  1935.315145 s Train Loss: 0.137600 Train Acc: 95.102000 Eval Loss: 0.387747 Eval Acc: 88.650000
+Epoch: 42 Wall Time: 43.340034 s Epoch time  1978.655179 s Train Loss: 0.133899 Train Acc: 95.288000 Eval Loss: 0.394770 Eval Acc: 88.600000
+Epoch: 43 Wall Time: 43.286728 s Epoch time  2021.941907 s Train Loss: 0.136000 Train Acc: 95.206000 Eval Loss: 0.462214 Eval Acc: 87.740000
+Epoch: 44 Wall Time: 43.757242 s Epoch time  2065.699149 s Train Loss: 0.132289 Train Acc: 95.334000 Eval Loss: 0.392326 Eval Acc: 89.210000
+Epoch: 45 Wall Time: 43.301575 s Epoch time  2109.000724 s Train Loss: 0.131429 Train Acc: 95.440000 Eval Loss: 0.459924 Eval Acc: 87.710000
+Epoch: 46 Wall Time: 43.557493 s Epoch time  2152.558217 s Train Loss: 0.126887 Train Acc: 95.658000 Eval Loss: 0.423435 Eval Acc: 88.220000
+Epoch: 47 Wall Time: 43.587615 s Epoch time  2196.145832 s Train Loss: 0.123311 Train Acc: 95.716000 Eval Loss: 0.425520 Eval Acc: 88.290000
+Epoch: 48 Wall Time: 43.769016 s Epoch time  2239.914849 s Train Loss: 0.123330 Train Acc: 95.756000 Eval Loss: 0.435784 Eval Acc: 88.340000
+Epoch: 49 Wall Time: 43.734505 s Epoch time  2283.649354 s Train Loss: 0.121849 Train Acc: 95.664000 Eval Loss: 0.439017 Eval Acc: 88.250000
+Epoch: 50 Wall Time: 43.517748 s Epoch time  2327.167102 s Train Loss: 0.119862 Train Acc: 95.830000 Eval Loss: 0.428561 Eval Acc: 88.100000
+Inference Latency (BS = 1): 3.9684563207626344 [ms / image]

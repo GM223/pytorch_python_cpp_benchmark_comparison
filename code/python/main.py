@@ -17,7 +17,9 @@ import numpy as np
 from models import *
 from utils import progress_bar
 
-num_epochs = 3
+torch.manual_seed(0)
+
+num_epochs = 50
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
@@ -46,12 +48,12 @@ transform_test = transforms.Compose([
 trainset = torchvision.datasets.CIFAR10(
     root='./data', train=True, download=True, transform=transform_train)
 trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size=128, shuffle=True, num_workers=2)
+    trainset, batch_size=128, shuffle=False, num_workers=4)
 
 testset = torchvision.datasets.CIFAR10(
     root='./data', train=False, download=True, transform=transform_test)
 testloader = torch.utils.data.DataLoader(
-    testset, batch_size=128, shuffle=False, num_workers=2)
+    testset, batch_size=128, shuffle=False, num_workers=4)
 
 classes = ('plane', 'car', 'bird', 'cat', 'deer',
            'dog', 'frog', 'horse', 'ship', 'truck')
@@ -61,8 +63,6 @@ print('==> Building model..')
 net = ResNet18()
 if args.model == 'ResNet34':
     net = ResNet34()
-elif args.model == 'ResNet50':
-    net = ResNet50()
 
 net = net.to(device)
 if device == 'cuda':
@@ -76,7 +76,7 @@ optimizer = optim.SGD(net.parameters(), lr=args.lr,
 
 # Training
 def train(epoch):
-    print('\nEpoch: %d' % epoch)
+    #print('\nEpoch: %d' % epoch)
     net.train()
     train_loss = 0
     correct = 0
@@ -114,15 +114,16 @@ def train(epoch):
         correct += predicted.eq(targets).sum().item()
         t_loss = train_loss/(batch_idx+1)
 
-        progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                              % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))        
+        # progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+        #                       % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))        
         
         top_1 = 100.*correct/total
 
     # print("Data Loader Time: %.3lf sec, Training Time: %.3lf sec"% (total_batchLoad_time, total_training_time))
     # print("Average Data Loader Time per batch: %.6lf sec, Average Training Time per batch: %.6lf sec"% ((total_batchLoad_time/len(trainloader)), total_training_time/len(trainloader))) # needed for C7
     # print("Average Training Loss %0.3f, Top 1 percent accuracy %0.3f%%"%(training_loss, top_1))
-    return total_training_time, total_batchLoad_time, total_inference_time, t_loss, top_1
+    #return total_training_time, total_batchLoad_time, total_inference_time, t_loss, top_1
+    return t_loss, top_1
 
 def test(epoch):
     global best_acc
@@ -156,10 +157,11 @@ def test(epoch):
             t_loss = test_loss/(batch_idx+1)
 
             top_1 = 100.*correct/total
-            progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                         % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+            # progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
+            #              % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
 
-    return total_batchLoad_time, total_inference_time, t_loss, top_1
+    #return total_batchLoad_time, total_inference_time, t_loss, top_1
+    return t_loss, top_1
 
 
 #https://deci.ai/blog/measure-inference-time-deep-neural-networks/
@@ -184,7 +186,7 @@ def measure_inference_latency():
                 timings[rep] = curr_time
     mean_syn = np.sum(timings) / repetitions
     #std_syn = np.std(timings)
-    print("Mean Latency " + str(mean_syn) + " [ms/image]")
+    #print("Mean Latency " + str(mean_syn) + " [ms/image]")
     return mean_syn
 
 avg_total_training_time = 0.0
@@ -192,7 +194,10 @@ training_epoch_total = 0.0
 everthing_time_start = time.perf_counter()
 
 f = open(args.filename, 'w', encoding="utf-8")
-f.write("Epoch,Wall Time, total_Training_time, Training_batchLoad_time, Train_inference_time, Train_loss, Train_top_1, Test_batchLoad_time, Test_inference_time, Test_loss, Test_top_1\r\n")
+f.write("Epoch, Wall Time, Epoch time, Train_loss, Train_top_1, Test_loss, Test_top_1\r\n")
+
+previous_epoch_time = 0
+
 for epoch in range(start_epoch, start_epoch+num_epochs):
     training_epoch_start_time = time.perf_counter()
     tr = train(epoch)
@@ -202,17 +207,20 @@ for epoch in range(start_epoch, start_epoch+num_epochs):
     
     te = test(epoch)
     wall_time = time.perf_counter()-everthing_time_start
-    f.write(str(epoch)+","+str(wall_time)+","+str(tr+te)[1:-1]+"\r\n")
+    epoch_time = wall_time - previous_epoch_time
+    f.write(str(epoch+1)+","+str(wall_time)+","+str(epoch_time)+","+str(tr+te)[1:-1]+"\r\n")
     #scheduler.step()
-    print("Epoch: %3d Time: %.6lf s Train Loss: %.6lf Train Acc: %.6lf Eval Loss: %.6lf Eval Acc: %.6lf"%(epoch, time.perf_counter()-everthing_time_start, tr[2], tr[3], te[2], te[3]))
+    print("Epoch: %d Wall Time: %.6lf s Epoch time  %.6lf s Train Loss: %.6lf Train Acc: %.6lf Eval Loss: %.6lf Eval Acc: %.6lf"%(epoch+1, epoch_time, wall_time, tr[0], tr[1], te[0], te[1]))
+    previous_epoch_time = wall_time
 
 everthing_time_stop = time.perf_counter()
 everthing_time = everthing_time_stop - everthing_time_start
 
-f.write("\r\n\r\n\r\n\r\n")
-f.write("Total Time to finish the program " + str(everthing_time) + " sec\r\n" + "Average Running Time per epoch: %.3lf sec, Average Training Time per epoch: %.3lf sec \r\n"% ((avg_total_training_time/num_epochs), (avg_total_training_time/num_epochs)) )
+f.write("\r\n")
+#f.write("Total Time to finish the program, " + str(everthing_time) + " sec\r\n" + ",Average Running Time per epoch:, %.3lf sec, Average Training Time per epoch:, %.3lf sec \r\n"% ((avg_total_training_time/num_epochs), (avg_total_training_time/num_epochs)) )
+latency = measure_inference_latency()
+f.write("latency," + str(latency)+ ",in ms\r\n")
 f.close()
-
-measure_inference_latency()
-print("Total Time to finish the program " + str(everthing_time) + " sec\r\n")
-print("Average Running Time per epoch: %.3lf sec, Average Training Time per epoch: %.3lf sec \r\n"% ((avg_total_training_time/num_epochs), (avg_total_training_time/num_epochs)))
+print("Inference Latency (BS = 1): " +str(latency) + " [ms / image]")
+#print("Total Time to finish the program " + str(everthing_time) + " sec\r\n")
+#print("Average Running Time per epoch: %.3lf sec, Average Training Time per epoch: %.3lf sec \r\n"% ((avg_total_training_time/num_epochs), (avg_total_training_time/num_epochs)))
